@@ -1,6 +1,7 @@
 from tester.tester import Tester
 from machine import Pin
 from neopixel import NeoPixel
+from root_tools import ctrl_button
 
 colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (0, 255, 255), (255, 0, 255), (255, 255, 255), (128, 255, 128)]
 

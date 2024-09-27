@@ -17,7 +17,7 @@ class LedTester(Tester):
         for pin in self.pins:
             self.led = Pin(pin, Pin.OUT)
             temp = 0
-            if right_btn.value() or left_btn.value() or down_btn.value() or up_btn.value():
+            if ctrl_button.value() or left_button.value() or down_button.value() or up_button.value():
                 temp = 1
             self.led.value(temp)
 

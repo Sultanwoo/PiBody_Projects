@@ -2,7 +2,7 @@ from tester.tester import Tester
 from machine import Pin, PWM
 from utime import sleep
 
-from root_tools import right_btn, display
+from root_tools import ctrl_button, display
 class ServoTester(Tester):
     name = "Servo"
     def __init__(self, pins):
@@ -22,7 +22,7 @@ class ServoTester(Tester):
         for pin in self.pins:
             self.servo = PWM(Pin(pin))
             self.servo.freq(50)
-            self.set_angle(right_btn.value() * 180)
+            self.set_angle(ctrl_button.value() * 180)
 
     def finish(self):
         super().finish()

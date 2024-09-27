@@ -1,6 +1,6 @@
 from machine import Pin
 from utime import sleep_ms
-from root_tools import display, right_btn, up_btn, left_btn, down_btn, color565
+from root_tools import display, ctrl_button, up_button, left_button, down_button, color565
 import os
 
 GAMES_QUANTITY = 3# Currently only 3 games are supported
@@ -63,9 +63,9 @@ def main():
     global selected_cell, movement
     main_menu()
 
-    left_btn.irq(trigger=Pin.IRQ_RISING, handler=lambda a:callback(-1))
-    right_btn.irq(trigger=Pin.IRQ_RISING, handler=lambda a:callback(+1))
-    up_btn.irq(trigger=Pin.IRQ_RISING, handler=lambda a:launch_game())
+    left_button.irq(trigger=Pin.IRQ_RISING, handler=lambda a:callback(-1))
+    ctrl_button.irq(trigger=Pin.IRQ_RISING, handler=lambda a:callback(+1))
+    up_button.irq(trigger=Pin.IRQ_RISING, handler=lambda a:launch_game())
     
 
     select_cell(selected_cell)

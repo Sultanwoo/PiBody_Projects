@@ -1,5 +1,5 @@
 import time
-from root_tools import display, right_btn, color565
+from root_tools import display, ctrl_button
 
 class Tester():
     def __init__(self, name, pins):
@@ -8,7 +8,7 @@ class Tester():
         self.pins = pins
         
     def start(self):
-        alll = [0, 1, 5, 7, 2, 28, 17, 27]
+        alll = [0, 1, 2, 28, 5, 7, 17, 27]
         half = [4, 5, 6, 7, 16, 17, 26, 27]
         analog = [28, 27]
         servo = [8, 9]
@@ -27,19 +27,18 @@ class Tester():
             slot_name = "GP" + str(self.pins) 
 
         display.clear()
-        display.fill_rectangle(40, 50, 240, 10, color565(64, 64, 64))
         display.display_text("Hold down the button GP19 to move to the next test", 50, 20)
-        display.display_text(f"Testing: {self.name}", 50, display.height - 35)
-        display.display_text(f"Connect to: {slot_name}", 50, display.height - 15)
+        display.display_text(f"Testing: {self.name}", 60, display.height - 35)
+        display.display_text(f"Connect to: {slot_name}", 60, display.height - 15)
         time.sleep(0.5)
 
     def finish(self):
         display.clear()
         display.display_text(f"{self.name} Test completed", 60, 80)
         time.sleep(1)  # Delay for stability
-        if right_btn.value():
+        if ctrl_button.value():
             display.display_text(f"Pull the button up!", 50, 100)
-        while right_btn.value():
+        while ctrl_button.value():
             pass
         display.clear()
         

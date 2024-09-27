@@ -34,7 +34,6 @@ class ClimateTester(Tester):
     def start(self):    
         super().start()        
         for i in range(4):
-            display.display_text(f"Scanning GP{self.pins[i*2+1]}", 30, 100)
             if self.init_I2C(self.pins[i*2], self.pins[i*2+1]):
                 return True
         return False

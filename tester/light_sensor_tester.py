@@ -1,7 +1,7 @@
 from tester.tester import Tester
 from machine import Pin, ADC
 from utime import sleep
-from root_tools import display, color565
+from root_tools import ctrl_button, display, color565
 
 class LightSensorTester(Tester):
     name = "Light Sensor"
